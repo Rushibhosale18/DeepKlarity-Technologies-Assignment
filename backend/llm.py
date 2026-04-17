@@ -42,6 +42,17 @@ def extract_recipe_llm(text):
             output_text = "".join(part.text or "" for part in candidate.content.parts)
 
     try:
-        return json.loads(output_text)
-    except Exception:
-        return {"error": "Invalid JSON from LLM", "raw": output_text}
+        clean_text = output_text.strip()
+        if clean_text.startswith("```json"):
+            clean_text = clean_text[7:]
+        elif clean_text.startswith("```"):
+            clean_text = clean_text[3:]
+            
+        if clean_text.endswith("```"):
+            clean_text = clean_text[:-3]
+            
+        clean_text = clean_text.strip()
+        
+        return json.loads(clean_text)
+    except Exception as e:
+        return {"error": "Invalid JSON from LLM", "raw": output_text, "exception": str(e)}
