@@ -20,31 +20,31 @@ A full-stack application built for the **DeepKlarity Technologies Assignment**. 
 ### 2. Backend Setup
 1. Open a terminal and navigate to the `backend` directory.
 2. Create a virtual environment and install dependencies:
-   ```bash
+   bash
    python -m venv venv
    .\venv\Scripts\activate
    pip install -r requirements.txt
    ```
 3. Update `backend/.env` with your actual Postgres credentials and Gemini API Key.
-   ```
-   GEMINI_API_KEY=your_key_here
+   
+   GEMINI_API_KEY=AQ.Ab8RN6KKQYEEDiYPKHpjYYV0ErUCCJ2U1Si1qtSSWQxK4JgMTA
    DATABASE_URL=postgresql://postgres:YOUR_PASSWORD@localhost:5432/recipe_planner
    ```
 4. Start the backend server:
-   ```bash
+   bash
    uvicorn main:app --reload
-   ```
+   
 
 ### 3. Frontend Setup
 1. Open a new terminal and navigate to the `frontend` directory.
 2. Install dependencies:
-   ```bash
+   bash
    npm install
    ```
 3. Start the Vite React development server:
-   ```bash
+   bash
    npm run dev
-   ```
+   
 4. Open the displayed `localhost` link in your browser!
 
 ---
