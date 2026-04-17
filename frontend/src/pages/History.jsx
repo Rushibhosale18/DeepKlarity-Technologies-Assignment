@@ -15,7 +15,7 @@ const History = () => {
 
   const fetchRecipes = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/recipes');
+      const response = await axios.get('https://deepklarity-technologies-assignment.onrender.com/api/recipes');
       setRecipes(response.data);
     } catch (error) {
       console.error("Failed to fetch history", error);

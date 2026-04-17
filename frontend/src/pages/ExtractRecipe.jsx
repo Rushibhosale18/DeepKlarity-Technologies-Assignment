@@ -19,7 +19,7 @@ const ExtractRecipe = () => {
     
     try {
       // In production, update this to your backend url
-      const response = await axios.post('http://127.0.0.1:8000/api/extract', { url });
+      const response = await axios.post('https://deepklarity-technologies-assignment.onrender.com/api/extract', { url });
       setResult(response.data);
     } catch (err) {
       const detail = err.response?.data?.detail;
