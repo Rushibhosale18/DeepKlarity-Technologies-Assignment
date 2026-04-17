@@ -1,5 +1,8 @@
 # FlavorSync - Recipe Extractor & Meal Planner
 
+🚀 **Live Frontend:** [https://deep-klarity-technologies-assignmen.vercel.app/](https://deep-klarity-technologies-assignmen.vercel.app/)
+⚙️ **Live Backend API:** [https://deepklarity-technologies-assignment.onrender.com](https://deepklarity-technologies-assignment.onrender.com)
+
 A full-stack application built for the **DeepKlarity Technologies Assignment**. It extracts structured recipe arrays, calculates nutritional facts, generates substitutions and shopping lists from any blog link using LangChain and a Large Language Model.
 
 ## Tech Stack
