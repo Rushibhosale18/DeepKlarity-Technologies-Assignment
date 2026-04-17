@@ -30,10 +30,13 @@ def extract_recipe_llm(text):
     {text}
     """
 
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=[prompt],
-    )
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=[prompt],
+        )
+    except Exception as e:
+        return {"error": f"LLM Error: {str(e)}"}
 
     output_text = ""
     if response.candidates:
