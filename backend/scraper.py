@@ -1,15 +1,16 @@
 import requests
+import cloudscraper
 from bs4 import BeautifulSoup
 
 def scrape_recipe(url: str):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.5'
-    }
+    scraper = cloudscraper.create_scraper(browser={
+        'browser': 'chrome',
+        'platform': 'windows',
+        'desktop': True
+    })
     
     try:
-        res = requests.get(url, headers=headers, timeout=10)
+        res = scraper.get(url, timeout=15)
         res.raise_for_status()
         soup = BeautifulSoup(res.text, "html.parser")
         
