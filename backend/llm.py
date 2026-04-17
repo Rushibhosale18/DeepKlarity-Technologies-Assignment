@@ -31,12 +31,20 @@ def extract_recipe_llm(text):
     """
 
     try:
+        # Switching to 2.0-flash as my check showed 1.5-flash is unavailable for this key
         response = client.models.generate_content(
-            model="gemini-1.5-flash",
+            model="gemini-2.0-flash",
             contents=[prompt],
         )
     except Exception as e:
-        return {"error": f"LLM Error: {str(e)}"}
+        # Last ditch effort with 'flash-latest' if 2.0 fails
+        try:
+           response = client.models.generate_content(
+                model="gemini-flash-latest",
+                contents=[prompt],
+            )
+        except Exception as inner_e:
+            return {"error": f"LLM Error: {str(inner_e)}"}
 
     output_text = ""
     if response and response.candidates:
