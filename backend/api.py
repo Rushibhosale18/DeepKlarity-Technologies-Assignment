@@ -46,11 +46,23 @@ def extract(request: ExtractRequest, db: Session = Depends(get_db)):
 # 🔹 Get All Recipes (History)
 @router.get("/recipes")
 def get_recipes(db: Session = Depends(get_db)):
-    return db.query(models.Recipe).all()
+    recipes = db.query(models.Recipe).all()
+    results = []
+    for r in recipes:
+        parsed_data = json.loads(r.data) if r.data else {}
+        results.append({
+            "id": r.id,
+            "url": r.url,
+            **parsed_data
+        })
+    return results
 
 
 # 🔹 Get Single Recipe
 @router.get("/recipes/{id}")
 def get_recipe(id: int, db: Session = Depends(get_db)):
     recipe = db.query(models.Recipe).filter(models.Recipe.id == id).first()
-    return recipe
+    if recipe:
+        parsed_data = json.loads(recipe.data) if recipe.data else {}
+        return {"id": recipe.id, "url": recipe.url, **parsed_data}
+    return {"error": "Not found"}
