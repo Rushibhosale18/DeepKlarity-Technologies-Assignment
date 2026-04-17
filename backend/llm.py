@@ -1,0 +1,47 @@
+import json
+import os
+from dotenv import load_dotenv
+from google import genai
+
+dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
+load_dotenv(dotenv_path)
+
+api_key = os.getenv("GEMINI_API_KEY")
+if not api_key:
+    raise RuntimeError("GEMINI_API_KEY is not set in the environment")
+
+client = genai.Client(api_key=api_key)
+
+def extract_recipe_llm(text):
+    prompt = f"""
+    Extract structured recipe data from this text.
+
+    Return ONLY JSON with:
+    title, cuisine, prep_time, cook_time, total_time,
+    servings, difficulty,
+    ingredients (quantity, unit, item),
+    instructions (steps),
+    nutrition_estimate (calories, protein, carbs, fat),
+    substitutions (3),
+    shopping_list (grouped),
+    related_recipes (3)
+
+    TEXT:
+    {text}
+    """
+
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=[prompt],
+    )
+
+    output_text = ""
+    if response.candidates:
+        candidate = response.candidates[0]
+        if candidate.content and candidate.content.parts:
+            output_text = "".join(part.text or "" for part in candidate.content.parts)
+
+    try:
+        return json.loads(output_text)
+    except Exception:
+        return {"error": "Invalid JSON from LLM", "raw": output_text}

@@ -1,0 +1,174 @@
+.recipe-display {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.recipe-header {
+  margin-bottom: 0.5rem;
+}
+
+.recipe-header .title {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(to right, #ffffff, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.badge.diff-easy { background: rgba(16, 185, 129, 0.2); border: 1px solid var(--success); color: var(--success); }
+.badge.diff-medium { background: rgba(245, 158, 11, 0.2); border: 1px solid var(--warning); color: var(--warning); }
+.badge.diff-hard { background: rgba(239, 68, 68, 0.2); border: 1px solid var(--danger); color: var(--danger); }
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: var(--surface);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.ingredient-list li {
+  display: flex;
+  align-items: baseline;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.ingredient-list li:last-child {
+  border-bottom: none;
+}
+
+.qty {
+  font-weight: 700;
+  color: var(--text-main);
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.instruction-list {
+  padding-left: 0;
+  counter-reset: step;
+}
+
+.instruction-list li {
+  position: relative;
+  padding: 1rem 0 1rem 3rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.instruction-list li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background: rgba(79, 70, 229, 0.1);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.nutr-item {
+  background: var(--bg-color);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+}
+
+.nutr-val {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.nutr-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+.info-card ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.info-card li {
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+}
+
+.shopping-category {
+  margin-bottom: 1rem;
+}
+
+.cat-title {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
