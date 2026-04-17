@@ -1,0 +1,11 @@
+You are a meal planning assistant.
+Given the following extracted recipe, suggest 3 to 5 complementary dishes that could be served alongside it to create a balanced meal plan, or suggest recipes to make for the rest of the week based on its ingredients.
+
+Return the result EXACTLY as a JSON array of strings:
+[
+  "Complementary Dish 1...",
+  "Complementary Dish 2..."
+]
+
+Recipe Context:
+{recipe_context}

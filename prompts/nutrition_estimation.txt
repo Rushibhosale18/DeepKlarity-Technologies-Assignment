@@ -1,0 +1,13 @@
+You are an expert nutritionist and dietitian.
+Given the following recipe details (ingredients, instructions, and servings), provide a nutritional estimate PER SERVING.
+
+Return the result EXACTLY as a JSON object matching this schema:
+{
+    "calories": 400,
+    "protein": "15g",
+    "carbs": "50g",
+    "fat": "10g"
+}
+
+Recipe Details:
+{recipe_text}

@@ -1,0 +1,64 @@
+[
+  {
+    "url": "https://www.allrecipes.com/recipe/23891/grilled-cheese-sandwich/",
+    "response": {
+      "id": 1,
+      "url": "https://www.allrecipes.com/recipe/23891/grilled-cheese-sandwich/",
+      "title": "Grilled Cheese Sandwich",
+      "cuisine": "American",
+      "prep_time": "5 mins",
+      "cook_time": "10 mins",
+      "total_time": "15 mins",
+      "servings": 1,
+      "difficulty": "easy",
+      "ingredients": [
+        {
+          "quantity": "2",
+          "unit": "slices",
+          "item": "bread"
+        },
+        {
+          "quantity": "1",
+          "unit": "slice",
+          "item": "American cheese"
+        },
+        {
+          "quantity": "1",
+          "unit": "tablespoon",
+          "item": "butter"
+        }
+      ],
+      "instructions": [
+        "Preheat skillet over medium heat.",
+        "Generously butter one side of a slice of bread. Place bread butter-side-down onto skillet bottom and add 1 slice of cheese.",
+        "Butter a second slice of bread on one side and place butter-side-up on top of sandwich.",
+        "Grill until lightly browned and flip over; continue grilling until cheese is melted."
+      ],
+      "nutrition_estimate": {
+        "calories": 400,
+        "protein": "12g",
+        "carbs": "30g",
+        "fat": "20g"
+      },
+      "substitutions": [
+        "Use whole wheat bread and cheddar cheese for a healthier, sharper option.",
+        "Substitute butter with mayonnaise for a crispier crust."
+      ],
+      "shopping_list": {
+        "Dairy": [
+          "American cheese",
+          "Butter"
+        ],
+        "Bakery": [
+          "Bread"
+        ]
+      },
+      "related_recipes": [
+        "Tomato Soup",
+        "Tuna Melt",
+        "Patty Melt"
+      ],
+      "created_at": "2023-10-27T10:00:00"
+    }
+  }
+]

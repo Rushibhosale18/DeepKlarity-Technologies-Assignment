@@ -1,0 +1,11 @@
+You are an expert chef.
+Given the following recipe ingredients, suggest 3 to 5 realistic substitutions for common allergens (like dairy, gluten, nuts) or to switch up the flavor profile.
+
+Return the result EXACTLY as a JSON array of strings:
+[
+  "Substitute A with B...",
+  "Substitute C with D..."
+]
+
+Ingredients:
+{ingredients_text}
