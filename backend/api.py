@@ -28,6 +28,10 @@ def extract(request: ExtractRequest, db: Session = Depends(get_db)):
 
     data = extract_recipe_llm(text)
 
+    if "error" in data:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=500, detail=data["error"])
+
     # Save to DB
     recipe = models.Recipe(
         url=request.url,

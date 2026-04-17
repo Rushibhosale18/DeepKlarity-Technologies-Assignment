@@ -32,17 +32,20 @@ def extract_recipe_llm(text):
 
     try:
         response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-1.5-flash",
             contents=[prompt],
         )
     except Exception as e:
         return {"error": f"LLM Error: {str(e)}"}
 
     output_text = ""
-    if response.candidates:
+    if response and response.candidates:
         candidate = response.candidates[0]
         if candidate.content and candidate.content.parts:
             output_text = "".join(part.text or "" for part in candidate.content.parts)
+    
+    if not output_text:
+        return {"error": "LLM returned empty content"}
 
     try:
         clean_text = output_text.strip()
