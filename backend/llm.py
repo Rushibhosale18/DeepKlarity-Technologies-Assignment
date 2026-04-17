@@ -15,16 +15,31 @@ client = genai.Client(api_key=api_key)
 def extract_recipe_llm(text):
     prompt = f"""
     Extract structured recipe data from this text.
-
-    Return ONLY JSON with:
-    title, cuisine, prep_time, cook_time, total_time,
-    servings, difficulty,
-    ingredients (quantity, unit, item),
-    instructions (steps),
-    nutrition_estimate (calories, protein, carbs, fat),
-    substitutions (3),
-    shopping_list (grouped),
-    related_recipes (3)
+    Return ONLY JSON. STRICTLY follow this format:
+    {{
+        "title": "String",
+        "cuisine": "String",
+        "prep_time": "String",
+        "cook_time": "String",
+        "total_time": "String",
+        "servings": Number,
+        "difficulty": "easy/medium/hard",
+        "ingredients": [
+            {{ "quantity": "String", "unit": "String", "item": "String" }}
+        ],
+        "instructions": ["String (Step 1)", "String (Step 2)"],
+        "nutrition_estimate": {{
+            "calories": "String or Number",
+            "protein": "String",
+            "carbs": "String",
+            "fat": "String"
+        }},
+        "substitutions": ["String 1", "String 2", "String 3"],
+        "shopping_list": {{
+            "Category Name": ["Item 1", "Item 2"]
+        }},
+        "related_recipes": ["String 1", "String 2", "String 3"]
+    }}
 
     TEXT:
     {text}
